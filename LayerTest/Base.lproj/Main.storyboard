@@ -21,10 +21,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GI7-2g-hG8">
                                 <rect key="frame" x="117.5" y="263.5" width="140" height="140"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Digits" translatesAutoresizingMaskIntoConstraints="NO" id="AYe-7V-QQl">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="HLj-9G-8jl"/>
+                                    <constraint firstItem="AYe-7V-QQl" firstAttribute="leading" secondItem="GI7-2g-hG8" secondAttribute="leading" id="Oyu-2E-4Lz"/>
+                                    <constraint firstAttribute="bottom" secondItem="AYe-7V-QQl" secondAttribute="bottom" id="cnz-Cn-rDS"/>
                                     <constraint firstAttribute="width" secondItem="GI7-2g-hG8" secondAttribute="height" multiplier="1:1" id="f0h-t3-8Kg"/>
+                                    <constraint firstAttribute="trailing" secondItem="AYe-7V-QQl" secondAttribute="trailing" id="rkV-Er-JXU"/>
+                                    <constraint firstItem="AYe-7V-QQl" firstAttribute="top" secondItem="GI7-2g-hG8" secondAttribute="top" id="sb7-F6-Rek"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -41,6 +50,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="670" y="96"/>
+        </scene>
+        <!--Digit View Controller-->
+        <scene sceneID="mzf-wA-8zz">
+            <objects>
+                <viewController id="SD7-Bn-WlV" customClass="DigitViewController" customModule="LayerTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xt6-Zl-iOu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nML-mX-axy">
+                                <rect key="frame" x="12" y="303.5" width="351" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZD-ml-3Vo">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZ6-Wb-A0k">
+                                        <rect key="frame" x="60" y="0.0" width="50.5" height="60"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-55-ae6">
+                                        <rect key="frame" x="120.5" y="0.0" width="50" height="60"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-Ek-h20">
+                                        <rect key="frame" x="180.5" y="0.0" width="50" height="60"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l0-HG-T5P">
+                                        <rect key="frame" x="240.5" y="0.0" width="50.5" height="60"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyk-1U-86N">
+                                        <rect key="frame" x="301" y="0.0" width="50" height="60"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RXQ-wH-No7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nML-mX-axy" firstAttribute="centerX" secondItem="Xt6-Zl-iOu" secondAttribute="centerX" id="3Uc-7E-foy"/>
+                            <constraint firstItem="nML-mX-axy" firstAttribute="leading" secondItem="Ghj-oP-fvs" secondAttribute="leading" constant="12" id="G44-cG-PwQ"/>
+                            <constraint firstAttribute="trailing" secondItem="nML-mX-axy" secondAttribute="trailing" constant="12" id="Wjv-fQ-XWv"/>
+                            <constraint firstItem="nML-mX-axy" firstAttribute="centerY" secondItem="Xt6-Zl-iOu" secondAttribute="centerY" id="tIM-ny-qg9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ghj-oP-fvs"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="digitViews" destination="xZD-ml-3Vo" collectionClass="NSMutableArray" id="DmI-Tm-1mT"/>
+                        <outletCollection property="digitViews" destination="WZ6-Wb-A0k" collectionClass="NSMutableArray" id="FNH-2L-SLZ"/>
+                        <outletCollection property="digitViews" destination="8kK-55-ae6" collectionClass="NSMutableArray" id="kPC-vy-eHX"/>
+                        <outletCollection property="digitViews" destination="Icy-Ek-h20" collectionClass="NSMutableArray" id="Qys-9w-fW3"/>
+                        <outletCollection property="digitViews" destination="4l0-HG-T5P" collectionClass="NSMutableArray" id="r12-cQ-uc5"/>
+                        <outletCollection property="digitViews" destination="kyk-1U-86N" collectionClass="NSMutableArray" id="pBr-36-dUM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GYr-Ty-9OS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466" y="96"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Digits" width="1056" height="192"/>
+    </resources>
 </document>
