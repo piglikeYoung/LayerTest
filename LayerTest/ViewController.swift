@@ -24,7 +24,9 @@ class ViewController: UIViewController {
 //        test4_3()
 //        test4_6()
 //        test5_1()
-        test5_2()
+//        test5_2()
+//        test6_1()
+        test6_1_1()
     }
     
     func test2_1() {
@@ -112,6 +114,40 @@ class ViewController: UIViewController {
         transform.m34 = -1.0 / 500.0
         
         layerView.layer.transform = transform
+    }
+    
+    func test6_1() {
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 175, y: 100))
+        
+        path.addArc(withCenter: CGPoint(x: 150, y: 100), radius: 25, startAngle: 0, endAngle: CGFloat(2 * Double.pi), clockwise: true)
+        path.move(to: CGPoint(x: 150, y: 125))
+        path.addLine(to: CGPoint(x: 150, y: 175))
+        path.addLine(to: CGPoint(x: 125, y: 225))
+        path.move(to: CGPoint(x: 150, y: 175))
+        path.addLine(to: CGPoint(x: 175, y: 225))
+        path.move(to: CGPoint(x: 100, y: 150))
+        path.addLine(to: CGPoint(x: 200, y: 150))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = 5
+        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineCap = kCALineCapButt
+        shapeLayer.path = path.cgPath
+        layerView.layer.addSublayer(shapeLayer)
+    }
+    
+    func test6_1_1() {
+        let rect = CGRect(x: 50, y: 50, width: 100, height: 100)
+        let radii = CGSize(width: 20, height: 20)
+        let bezierPath = UIBezierPath(roundedRect: rect, byRoundingCorners: [UIRectCorner.topRight, UIRectCorner.bottomRight, UIRectCorner.bottomLeft], cornerRadii: radii)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.path = bezierPath.cgPath
+        layerView.layer.addSublayer(shapeLayer)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
