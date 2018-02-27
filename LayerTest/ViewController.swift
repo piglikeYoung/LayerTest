@@ -34,7 +34,8 @@ class ViewController: UIViewController {
 //        test6_4_1()
 //        test6_4_2()
 //        test6_5_1()
-        test6_5_2()
+//        test6_5_2()
+        test6_8()
     }
     
     // MARK: - test2
@@ -356,6 +357,31 @@ class ViewController: UIViewController {
         
         //reduce alpha of reflection layer
         replicator.instanceAlphaOffset = -0.6
+    }
+    
+    func test6_8() {
+        //create particle emitter layer
+        let emitter = CAEmitterLayer()
+        emitter.frame = layerView.bounds
+        layerView.layer.addSublayer(emitter)
+        
+        //configure emitter
+        emitter.renderMode = kCAEmitterLayerAdditive
+        emitter.emitterPosition = CGPoint(x: emitter.frame.size.width * 0.5, y: emitter.frame.size.height * 0.5)
+        
+        //create a particle template
+        let cell = CAEmitterCell()
+        cell.contents = UIImage(named: "setting_record_novideo")?.cgImage
+        cell.birthRate = 150
+        cell.lifetime = 5.0
+        cell.color = UIColor(red: 1, green: 0.5, blue: 0.1, alpha: 1.0).cgColor
+        cell.alphaSpeed = -0.4
+        cell.velocity = 50
+        cell.velocityRange = 50
+        cell.emissionRange = CGFloat(Double.pi * 2)
+        
+        //add particle template to emitter
+        emitter.emitterCells = [cell]
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
