@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var layerView: UIView!
+    @IBOutlet weak var layerLabel: LayerLabel!
     
     let blueLayer = CALayer()
     
@@ -26,7 +27,9 @@ class ViewController: UIViewController {
 //        test5_1()
 //        test5_2()
 //        test6_1()
-        test6_1_1()
+//        test6_1_1()
+//        test6_2_1()
+        test6_2_2()
     }
     
     func test2_1() {
@@ -148,6 +151,46 @@ class ViewController: UIViewController {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.path = bezierPath.cgPath
         layerView.layer.addSublayer(shapeLayer)
+    }
+    
+    func test6_2_1() {
+        
+        //create a text layer
+        let textLayer = CATextLayer()
+        textLayer.frame = layerView.bounds
+        layerView.layer.addSublayer(textLayer)
+        
+        //set text attributes
+        textLayer.foregroundColor = UIColor.black.cgColor
+        textLayer.alignmentMode = kCAAlignmentJustified
+        textLayer.isWrapped = true
+        textLayer.contentsScale = UIScreen.main.scale
+        
+        //choose a font
+        let font = UIFont.systemFont(ofSize: 15)
+        
+        //set layer font
+        let fontName = font.fontName
+        let fontRef = CGFont(fontName as CFString)
+        textLayer.font = fontRef
+        textLayer.fontSize = font.pointSize
+        
+        //choose some text
+        let text = "Lorem ipsum dolor sit amet, consectetur adipiscing \\ elit. Quisque massa arcu, eleifend vel varius in, facilisis pulvinar \\ leo. Nunc quis nunc at mauris pharetra condimentum ut ac neque. Nunc elementum, libero ut porttitor dictum, diam odio congue lacus, vel \\ fringilla sapien diam at purus. Etiam suscipit pretium nunc sit amet \\ lobortis"
+        
+        //set layer text
+        textLayer.string = text
+        
+    }
+    
+    func test6_2_2() {
+        layerLabel.setText(text: "Lorem ipsum dolor sit amet, consectetur adipiscing \\ elit. Quisque massa arcu, eleifend vel varius in, facilisis pulvinar \\ leo. Nunc quis nunc at mauris pharetra condimentum ut ac neque. Nunc elementum, libero ut porttitor dictum, diam odio congue lacus, vel \\ fringilla sapien diam at purus. Etiam suscipit pretium nunc sit amet \\ lobortis")
+        layerLabel.setTextColor(color: UIColor.green)
+        
+        //choose a font
+        let font = UIFont.systemFont(ofSize: 15)
+        
+        layerLabel.setFont(font: font)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
