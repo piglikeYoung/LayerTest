@@ -32,7 +32,9 @@ class ViewController: UIViewController {
 //        test6_2_2()
 //        test6_3()
 //        test6_4_1()
-        test6_4_2()
+//        test6_4_2()
+//        test6_5_1()
+        test6_5_2()
     }
     
     // MARK: - test2
@@ -311,6 +313,49 @@ class ViewController: UIViewController {
         //set gradient start and end points
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    }
+    
+    func test6_5_1() {
+        //create a replicator layer and add it to our view
+        let replicator = CAReplicatorLayer()
+        replicator.frame = layerView.bounds
+        layerView.layer.addSublayer(replicator)
+        
+        //configure the replicator
+        replicator.instanceCount = 10
+        
+        //apply a transform for each instance
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, 0, 200, 0)
+        transform = CATransform3DRotate(transform, CGFloat(Double.pi / 5), 0, 0, 1)
+        transform = CATransform3DTranslate(transform, 0, -200, 0)
+        replicator.instanceTransform = transform
+        
+        //apply a color shift for each instance
+        replicator.instanceBlueOffset = -0.1
+        replicator.instanceGreenOffset = -0.1
+        
+        //create a sublayer and place it inside the replicator
+        let layer = CALayer()
+        layer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        layer.backgroundColor = UIColor.white.cgColor
+        replicator.addSublayer(layer)
+    }
+    
+    func test6_5_2() {
+        //create a replicator layer and add it to our view
+        let replicator = CAReplicatorLayer()
+        replicator.instanceCount = 2
+        
+        //move reflection instance below original and flip vertically
+        var transform = CATransform3DIdentity
+        let verticalOffset = layerView.bounds.size.height + 2
+        transform = CATransform3DTranslate(transform, 0, verticalOffset, 0)
+        transform = CATransform3DScale(transform, 1, -1, 0)
+        replicator.instanceTransform = transform
+        
+        //reduce alpha of reflection layer
+        replicator.instanceAlphaOffset = -0.6
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
