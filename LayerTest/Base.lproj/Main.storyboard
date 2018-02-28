@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="okN-CD-Q1W">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,6 +64,49 @@
             </objects>
             <point key="canvasLocation" x="623" y="68"/>
         </scene>
+        <!--View Controller2-->
+        <scene sceneID="hRR-FE-wam">
+            <objects>
+                <viewController id="okN-CD-Q1W" customClass="ViewController2" customModule="LayerTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hD7-ZC-HO0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEb-d2-rjK">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElQ-vb-q7c">
+                                        <rect key="frame" x="52.5" y="170" width="94" height="30"/>
+                                        <state key="normal" title="Change Color"/>
+                                        <connections>
+                                            <action selector="changeColorClicked:" destination="okN-CD-Q1W" eventType="touchUpInside" id="byt-Jb-cEd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ElQ-vb-q7c" secondAttribute="bottom" id="Vzi-Xs-1U6"/>
+                                    <constraint firstAttribute="width" secondItem="QEb-d2-rjK" secondAttribute="height" multiplier="1:1" id="XVg-gQ-ozk"/>
+                                    <constraint firstAttribute="width" constant="200" id="hLy-IP-gqs"/>
+                                    <constraint firstItem="ElQ-vb-q7c" firstAttribute="centerX" secondItem="QEb-d2-rjK" secondAttribute="centerX" id="vhc-Df-w4s"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QEb-d2-rjK" firstAttribute="centerY" secondItem="hD7-ZC-HO0" secondAttribute="centerY" id="cdB-ZI-3Rf"/>
+                            <constraint firstItem="QEb-d2-rjK" firstAttribute="centerX" secondItem="hD7-ZC-HO0" secondAttribute="centerX" id="oh2-GK-ReY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7oZ-4k-tgi"/>
+                    </view>
+                    <connections>
+                        <outlet property="layerView" destination="QEb-d2-rjK" id="Ibq-P3-jtZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jou-xz-Sj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1407" y="68"/>
+        </scene>
         <!--Digit View Controller-->
         <scene sceneID="mzf-wA-8zz">
             <objects>
@@ -119,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GYr-Ty-9OS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466" y="96"/>
+            <point key="canvasLocation" x="2182" y="73"/>
         </scene>
     </scenes>
     <resources>

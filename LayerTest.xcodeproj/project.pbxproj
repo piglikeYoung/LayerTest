@@ -13,6 +13,7 @@
 		D26CB2B0204168A800229D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26CB2AE204168A800229D9A /* Main.storyboard */; };
 		D26CB2B2204168A800229D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26CB2B1204168A800229D9A /* Assets.xcassets */; };
 		D26CB2B5204168A800229D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26CB2B3204168A800229D9A /* LaunchScreen.storyboard */; };
+		D2A0473D2046A103000E90AB /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A0473C2046A103000E90AB /* ViewController2.swift */; };
 		D2AA89A520429B9700EAF92C /* DigitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA89A420429B9700EAF92C /* DigitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		D26CB2B1204168A800229D9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D26CB2B4204168A800229D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26CB2B6204168A800229D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A0473C2046A103000E90AB /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		D2AA89A420429B9700EAF92C /* DigitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 			children = (
 				D26CB2AA204168A700229D9A /* AppDelegate.swift */,
 				D26CB2AC204168A800229D9A /* ViewController.swift */,
+				D2A0473C2046A103000E90AB /* ViewController2.swift */,
 				D2AA89A420429B9700EAF92C /* DigitViewController.swift */,
 				D2332B612044ED6800555896 /* LayerLabel.swift */,
 				D26CB2AE204168A800229D9A /* Main.storyboard */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A0473D2046A103000E90AB /* ViewController2.swift in Sources */,
 				D2332B622044ED6800555896 /* LayerLabel.swift in Sources */,
 				D2AA89A520429B9700EAF92C /* DigitViewController.swift in Sources */,
 				D26CB2AD204168A800229D9A /* ViewController.swift in Sources */,
