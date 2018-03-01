@@ -26,7 +26,8 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        test7_4()
+//        test7_4()
+        test8_1_3()
     }
     
     @IBAction func changeColorClicked(_ sender: Any) {
@@ -35,6 +36,10 @@ class ViewController2: UIViewController {
 //        test7_3_1()
 //        test7_3_2()
 //        test7_3_3()
+//        test8_1_1()
+//        test8_1_2()
+//        test8_1_3()
+        test8_1_4()
     }
     
     func test7_1() {
@@ -107,5 +112,58 @@ class ViewController2: UIViewController {
             colorLayer2?.position = point!
             CATransaction.commit()
         }
+    }
+    
+    func test8_1_1() {
+        let animation = CABasicAnimation()
+        animation.keyPath = "backgroundColor"
+        animation.toValue = UIColor.randomColor.cgColor
+        animation.delegate = self
+        colorLayer.add(animation, forKey: nil)
+    }
+    
+    func test8_1_2() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "backgroundColor"
+        animation.duration = 10
+        animation.values = [UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.green.cgColor, UIColor.purple.cgColor]
+        colorLayer.add(animation, forKey: nil)
+    }
+    
+    func test8_1_3() {
+        let shipLayer = CALayer()
+        shipLayer.frame = CGRect(x: 0, y: 0, width: 128, height: 128)
+        shipLayer.position = CGPoint(x: 150, y: 150)
+        shipLayer.contents = UIImage(named: "Digits")?.cgImage
+        layerView.layer.addSublayer(shipLayer)
+        
+        let animation = CABasicAnimation()
+        animation.keyPath = "transform"
+        animation.duration = 2.0
+        animation.toValue = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 0, 1)
+        shipLayer.add(animation, forKey: nil)
+    }
+    
+    func test8_1_4() {
+        let shipLayer = CALayer()
+        shipLayer.frame = CGRect(x: 0, y: 0, width: 128, height: 128)
+        shipLayer.position = CGPoint(x: 150, y: 150)
+        shipLayer.contents = UIImage(named: "Digits")?.cgImage
+        layerView.layer.addSublayer(shipLayer)
+        
+        let animation = CABasicAnimation()
+        animation.keyPath = "transform.rotation"
+        animation.duration = 2.0
+        animation.toValue = Double.pi * 2
+        shipLayer.add(animation, forKey: nil)
+    }
+}
+
+extension ViewController2: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        colorLayer.backgroundColor = (anim as! CABasicAnimation).toValue as! CGColor
+        CATransaction.commit()
     }
 }
