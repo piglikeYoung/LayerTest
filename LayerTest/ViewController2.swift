@@ -27,7 +27,8 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         
 //        test7_4()
-        test8_1_3()
+//        test8_1_3()
+        test8_2()
     }
     
     @IBAction func changeColorClicked(_ sender: Any) {
@@ -156,6 +157,39 @@ class ViewController2: UIViewController {
         animation.duration = 2.0
         animation.toValue = Double.pi * 2
         shipLayer.add(animation, forKey: nil)
+    }
+    
+    func test8_2() {
+        //create a path
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 0, y: 150))
+        bezierPath.addCurve(to: CGPoint(x: 300, y: 150), controlPoint1: CGPoint(x: 75, y: 0), controlPoint2: CGPoint(x: 225, y: 300))
+        //draw the path using a CAShapeLayer
+        let pathLayer = CAShapeLayer()
+        pathLayer.path = bezierPath.cgPath
+        pathLayer.fillColor = UIColor.clear.cgColor
+        pathLayer.strokeColor = UIColor.red.cgColor
+        pathLayer.lineWidth = 3.0
+        view.layer.addSublayer(pathLayer)
+        //add a colored layer
+        let colorLayer = CALayer()
+        colorLayer.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        colorLayer.position = CGPoint(x: 0, y: 150)
+        colorLayer.backgroundColor = UIColor.green.cgColor
+        view.layer.addSublayer(colorLayer)
+        //create the position animation
+        let animation1 = CAKeyframeAnimation(keyPath: "position")
+        animation1.path = bezierPath.cgPath
+        animation1.rotationMode = kCAAnimationRotateAuto
+        //create the color animation
+        let animation2 = CABasicAnimation(keyPath: "backgroundColor")
+        animation2.toValue = UIColor.red.cgColor
+        //create group animation
+        let group = CAAnimationGroup()
+        group.animations = [animation1, animation2]
+        group.duration = 4.0
+        //add the animation to the color layer
+        colorLayer.add(group, forKey: nil)
     }
 }
 
