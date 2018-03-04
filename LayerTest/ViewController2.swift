@@ -12,6 +12,8 @@ class ViewController2: UIViewController {
 
     @IBOutlet weak var layerView: UIView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     lazy var colorLayer: CALayer = {
         let layer = CALayer()
         layer.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
@@ -22,13 +24,17 @@ class ViewController2: UIViewController {
     
     var colorLayer2: CALayer?
     
+    let images: [UIImage] = [UIImage(named: "Digits")!, UIImage(named: "setting_record_novideo")!]
+    
+    var shipLayer: CALayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        test7_4()
 //        test8_1_3()
-        test8_2()
+//        test8_2()
+        test8_4()
     }
     
     @IBAction func changeColorClicked(_ sender: Any) {
@@ -40,7 +46,12 @@ class ViewController2: UIViewController {
 //        test8_1_1()
 //        test8_1_2()
 //        test8_1_3()
-        test8_1_4()
+//        test8_1_4()
+//        test8_3_1()
+//        test8_3_3()
+//        test8_3_4()
+        
+        shipLayer?.removeAnimation(forKey: "rotateAnimation")
     }
     
     func test7_1() {
@@ -191,13 +202,78 @@ class ViewController2: UIViewController {
         //add the animation to the color layer
         colorLayer.add(group, forKey: nil)
     }
+    
+    func test8_3_1() {
+        //set up crossfade transition
+        let transition = CATransition()
+        transition.type = kCATransitionMoveIn
+        //apply transition to imageview backing layer
+        imageView.layer.add(transition, forKey: nil)
+        //cycle to next image
+        let currentImage = self.imageView.image
+        var index = images.index(of: currentImage!)!
+        index = (index + 1) % images.count
+        imageView.image = images[index]
+    }
+    
+    func test8_3_3() {
+        UIView.transition(with: imageView, duration: 1.0, options: .transitionFlipFromLeft, animations: {
+            //cycle to next image
+            let currentImage = self.imageView.image
+            var index = self.images.index(of: currentImage!)!
+            index = (index + 1) % self.images.count
+            self.imageView.image = self.images[index]
+        }, completion: nil)
+    }
+    
+    func test8_3_4() {
+        //preserve the current view snapshot
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0.0)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let coverImage = UIGraphicsGetImageFromCurrentImageContext()
+        //insert snapshot view in front of this one
+        let coverView = UIImageView(image: coverImage)
+        coverView.frame = view.bounds
+        view.addSubview(coverView)
+        //update the view (we'll simply randomize the layer background color)
+        view.backgroundColor = UIColor.randomColor
+        //perform animation (anything you like)
+        UIView.animate(withDuration: 1.0, animations: {
+            //scale, rotate and fade the view
+            var transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            transform = transform.concatenating(CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.5)))
+            coverView.transform = transform
+            coverView.alpha = 0.0
+        }) { (finished) in
+            //remove the cover view now we're finished with it
+            coverView.removeFromSuperview()
+        }
+    }
+    
+    func test8_4() {
+        self.shipLayer = CALayer()
+        self.shipLayer!.frame = CGRect(x: 0, y: 0, width: 128, height: 128)
+        self.shipLayer!.position = CGPoint(x: 150, y: 150)
+        self.shipLayer!.contents = UIImage(named: "Digits")?.cgImage
+        layerView.layer.addSublayer(self.shipLayer!)
+        
+        //animate the ship rotation
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.duration = 2.0
+        animation.byValue = Double.pi * 0.5
+        animation.delegate = self
+        self.shipLayer!.add(animation, forKey: "rotateAnimation")
+    }
 }
 
 extension ViewController2: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        colorLayer.backgroundColor = (anim as! CABasicAnimation).toValue as! CGColor
-        CATransaction.commit()
+//        CATransaction.begin()
+//        CATransaction.setDisableActions(true)
+//        colorLayer.backgroundColor = (anim as! CABasicAnimation).toValue as! CGColor
+//        CATransaction.commit()
+        
+        //log that the animation stopped
+        print("The animation stopped finished: \(flag ? "YES": "NO")")
     }
 }

@@ -91,15 +91,21 @@
                                     <constraint firstItem="ElQ-vb-q7c" firstAttribute="centerX" secondItem="QEb-d2-rjK" secondAttribute="centerX" id="vhc-Df-w4s"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_record_novideo" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-iJ-SkY">
+                                <rect key="frame" x="148" y="135.5" width="78" height="78"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4hN-iJ-SkY" firstAttribute="centerX" secondItem="hD7-ZC-HO0" secondAttribute="centerX" id="OeX-QH-a6E"/>
+                            <constraint firstItem="QEb-d2-rjK" firstAttribute="top" secondItem="4hN-iJ-SkY" secondAttribute="bottom" constant="20" id="SYv-Zn-T63"/>
                             <constraint firstItem="QEb-d2-rjK" firstAttribute="centerY" secondItem="hD7-ZC-HO0" secondAttribute="centerY" id="cdB-ZI-3Rf"/>
                             <constraint firstItem="QEb-d2-rjK" firstAttribute="centerX" secondItem="hD7-ZC-HO0" secondAttribute="centerX" id="oh2-GK-ReY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7oZ-4k-tgi"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="4hN-iJ-SkY" id="63G-uT-P2E"/>
                         <outlet property="layerView" destination="QEb-d2-rjK" id="Ibq-P3-jtZ"/>
                     </connections>
                 </viewController>
@@ -167,5 +173,6 @@
     </scenes>
     <resources>
         <image name="Digits" width="1056" height="192"/>
+        <image name="setting_record_novideo" width="78" height="78"/>
     </resources>
 </document>
