@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        test2_1()
+        test2_1()
 //        test2_2()
 //        test3_4()
 //        test4_3()
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 //        test6_4_2()
 //        test6_5_1()
 //        test6_5_2()
-        test6_8()
+//        test6_8()
     }
     
     // MARK: - test2
@@ -46,8 +46,8 @@ class ViewController: UIViewController {
         layerView.layer.contents = image?.cgImage
 //        layerView.layer.contentsGravity = kCAGravityCenter
         layerView.layer.contentsScale = UIScreen.main.scale
-        //        layerView.layer.contentsRect = CGRect(x: 0, y: 0, width: 0.5, height: 0.5)
-//        layerView.layer.contentsCenter = CGRect(x: 0.25, y: 0.25, width: 0.5, height: 0.5)
+//                layerView.layer.contentsRect = CGRect(x: 0, y: 0, width: 0.5, height: 0.5)
+        layerView.layer.contentsCenter = CGRect(x: 0, y: 0, width: 0.5, height: 0.5)
     }
     
     func test2_2() {
