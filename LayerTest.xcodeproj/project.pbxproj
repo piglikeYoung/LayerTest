@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DF921A32055211500BEC408 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF921A22055211500BEC408 /* DrawingView.swift */; };
 		D2332B622044ED6800555896 /* LayerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2332B612044ED6800555896 /* LayerLabel.swift */; };
 		D26CB2AB204168A700229D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26CB2AA204168A700229D9A /* AppDelegate.swift */; };
 		D26CB2AD204168A800229D9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26CB2AC204168A800229D9A /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DF921A22055211500BEC408 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		D2332B612044ED6800555896 /* LayerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerLabel.swift; sourceTree = "<group>"; };
 		D26CB2A7204168A700229D9A /* LayerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26CB2AA204168A700229D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				D2A0473C2046A103000E90AB /* ViewController2.swift */,
 				D2A03646204B965000E0B5F1 /* ViewController3.swift */,
 				D2A03648204BE40F00E0B5F1 /* ViewController4.swift */,
+				7DF921A22055211500BEC408 /* DrawingView.swift */,
 				D2AA89A420429B9700EAF92C /* DigitViewController.swift */,
 				D2CE4834204A739C003D7911 /* FirstViewController.swift */,
 				D2CE4836204A73AA003D7911 /* SecondViewController.swift */,
@@ -164,6 +167,7 @@
 				D2A03649204BE40F00E0B5F1 /* ViewController4.swift in Sources */,
 				D2CE4835204A739D003D7911 /* FirstViewController.swift in Sources */,
 				D2CE4837204A73AA003D7911 /* SecondViewController.swift in Sources */,
+				7DF921A32055211500BEC408 /* DrawingView.swift in Sources */,
 				D26CB2AD204168A800229D9A /* ViewController.swift in Sources */,
 				D26CB2AB204168A700229D9A /* AppDelegate.swift in Sources */,
 			);

@@ -13,7 +13,13 @@ class ViewController4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        test15_1()
+        test13_1()
+//        test15_1()
+    }
+    
+    func test13_1() {
+        let draw = DrawingView(frame: view.bounds)
+        view.addSubview(draw)
     }
     
     func test15_1() {
